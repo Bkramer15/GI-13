@@ -1,0 +1,15 @@
+{
+    "Snacks":[
+        {
+            "name":"Nachos",
+            "price":"$8.00",
+            "description":"savory and kinda spicy"
+        },
+        {
+            "name":"Hot Dog",
+            "price":"$5.00",
+            "description":"savory and kinda spicy"
+        }
+
+    ]
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/movies.css">
+    <title>Movie selector</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>AMC</h1>
+        </nav>
+         <div class="searchbar">
+            <div class="box">
+                <form action="/api/search" method="get" id="searchForm">
+                    <input type="text" id="search" name="movieName" placeholder="Select a movie, genre or actor" required>
+                    <button type="submit" id="button">SEARCH</button>
+                </form>
+            </div>
+    </header>   
+    <main>
+        <div class="slideshow">
+            
+        </div>
+        <div class="Showing">
+            {{#if movies.length}}
+                {{#each movies}}
+                    <div class="movie">
+                         <h1>{{original_title}}</h1>
+                        <img src="https://image.tmdb.org/t/p/w185/{{poster_path}}" alt="{{original_title}} Poster">
+                    </div>
+                {{/each}}
+            {{else}}
+                <p>No movies found.</p>
+            {{/if}}
+        </div>
+    </main>
+    <footer>
+        <div id="left">
+            <ul>
+                <h2>Our Company</h2>
+                <li>Our brands</li>
+                <li>Contact Us</li>
+                <li>Faqs</li>
+                <li>Corporation Information</li>
+            </ul>
+        </div>
+        <div id="middle">
+            <ul>
+                <h2>Movies</h2>
+                <li>Movies</li>
+                <li>Theaters</li>
+                <li>Ratings Information</li>
+                <li>Imax at AMC</li>
+            </ul>
+        </div>
+        <div id="right">
+            <ul>
+                <h2>Programming</h2>
+                <li>Private theatere rentals</li>
+                <li>AMC Aristan Films</li>
+                <li>AMC Thrills and Chills</li>
+                <li>AMC screen Unseen</li>
+            </ul>
+        </div>
+    </footer>    
+    <script src="../front.js"></script>
+</body>
+</html>
