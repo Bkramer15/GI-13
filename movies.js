@@ -13,8 +13,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/static', express.static('public'))
 //app.use(express.static(__dirname,"public"));
 
-async function searchMovie(movieName) {
-  const url = `https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&page=1`;
+async function searchMovie(movieName,actor,genre) {
+  let url = `https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&page=1`;
+  if (actor){
+    url +=`&with_cast=${actor}`
+  }
+  if (genre){
+    url += `&with_genres=${genre}`
+  }
   const options = {
     method: 'GET',
     headers: {
@@ -41,7 +47,7 @@ app.get('', async (req,res) =>{
 // GET endpoint to search for a movie based on user input
 app.get('/api/search', async (req, res) => {
   try {
-      const { movieName } = req.query; // Get the movie name from the user input
+      const { movieName,genre,actor } = req.query; // Get the movie name from the user input
       if (!movieName) {
           throw new Error("Movie name is required");
       }
