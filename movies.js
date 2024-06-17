@@ -12,7 +12,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/static', express.static('public'))
 //app.use(express.static(__dirname,"public"));
-console.log("yay");
 
 async function searchMovie(movieName) {
   const url = `https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&page=1`;

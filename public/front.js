@@ -1,3 +1,4 @@
+
 // Function to fetch movie data based on user search query
 async function searchAndDisplayMovie(searchQuery) {
     try {
