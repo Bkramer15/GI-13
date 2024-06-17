@@ -1,24 +1,3 @@
-// Function to display movie data on the frontend
-function displayData(movies) {
-    const container = document.querySelector(".Showing");
-    container.innerHTML = "";
-
-    movies.forEach(item => {
-        const dataItem = document.createElement("div");
-        dataItem.classList.add('movie');
-        
-        const imgSrc = item.poster_path
-            ? `https://image.tmdb.org/t/p/w185/${item.poster_path}`
-            : 'placeholder.jpg';
-
-        dataItem.innerHTML = `
-            <img src="${imgSrc}" alt="${item.original_title} Poster">
-            <h1>${item.original_title}</h1>
-        `;
-        container.appendChild(dataItem);
-    });
-}
-
 // Function to fetch movie data based on user search query
 async function searchAndDisplayMovie(searchQuery) {
     try {
